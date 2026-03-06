@@ -26,3 +26,28 @@ plt.xlabel("Price")
 plt.ylabel("Number of Houses")
 
 plt.show()
+# Split data into features and target
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error
+
+X = df.drop("price", axis=1)
+y = df["price"]
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Make predictions
+predictions = model.predict(X_test)
+
+# Evaluate model
+mae = mean_absolute_error(y_test, predictions)
+
+print("\nModel Performance")
+print("Mean Absolute Error:", mae)
