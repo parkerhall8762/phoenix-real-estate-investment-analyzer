@@ -51,3 +51,8 @@ mae = mean_absolute_error(y_test, predictions)
 
 print("\nModel Performance")
 print("Mean Absolute Error:", mae)
+# Feature importance
+importance = pd.Series(model.coef_, index=X.columns)
+
+print("\nFeature Importance:")
+print(importance.sort_values(ascending=False))
