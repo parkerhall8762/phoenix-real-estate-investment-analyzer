@@ -56,3 +56,9 @@ importance = pd.Series(model.coef_, index=X.columns)
 
 print("\nFeature Importance:")
 print(importance.sort_values(ascending=False))
+# Example prediction for a new property
+example_property = [[8.3, 41, 6.9, 1.1, 322, 2.5, 37.8, -122.2]]
+
+predicted_price = model.predict(example_property)
+
+print("\nPredicted house price for example property:", predicted_price[0])
