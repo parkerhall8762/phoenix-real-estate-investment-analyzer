@@ -57,3 +57,18 @@ predictions = model.predict(X_test)
 # Evaluate model
 rmse = np.sqrt(mean_squared_error(y_test, predictions))
 print("Model RMSE:", rmse)
+# Random Forest Model
+from sklearn.ensemble import RandomForestRegressor
+
+rf_model = RandomForestRegressor(
+    n_estimators=100,
+    random_state=42
+)
+
+rf_model.fit(X_train, y_train)
+
+rf_predictions = rf_model.predict(X_test)
+
+rf_rmse = np.sqrt(mean_squared_error(y_test, rf_predictions))
+
+print("Random Forest RMSE:", rf_rmse)
