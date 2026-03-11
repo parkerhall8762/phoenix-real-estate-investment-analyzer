@@ -72,3 +72,9 @@ rf_predictions = rf_model.predict(X_test)
 rf_rmse = np.sqrt(mean_squared_error(y_test, rf_predictions))
 
 print("Random Forest RMSE:", rf_rmse)
+import joblib
+
+# Save the trained Random Forest model
+joblib.dump(rf_model, "../models/random_forest_model.pkl")
+
+print("Model saved to models/random_forest_model.pkl")
